@@ -1,0 +1,46 @@
+<! DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" 
+      content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Loading a Web map into a Mapview</title>
+<style>
+  html, body, #viewDiv {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+</style>
+
+<link rel="stylesheet" href="https://js.arcgis.com/4.17/esri/css/main.css">
+<script src="https://js.arcgis.com/4.17/"></script>
+    <script>
+    require([
+        "esri/WebMap",
+        "esri/views/MapView",
+        "dojo/domReady!"
+        ], function(
+            WebMap,
+            MapView)
+           {
+        var mywebmap = new WebMap({
+            portalItem:{
+            id:"5ff04bb396944b659586daea04b3980b"
+            }
+        });
+        var myview = new MapView({
+            map: mywebmap,
+            container: "viewDiv"
+        });
+    }); </script>
+</head>
+<body>
+ 
+
+<div id="viewDiv"> </div>
+
+
+</body>
+</html>

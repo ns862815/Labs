@@ -1,0 +1,57 @@
+<! DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" 
+      content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Loading a web map into a Sceneview</title>
+<style>
+  html, body, #viewDiv {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+</style>
+
+<link rel="stylesheet" href="https://js.arcgis.com/4.17/esri/css/main.css">
+<script src="https://js.arcgis.com/4.17/"></script>
+    <script>
+    require([
+        "esri/WebMap",
+        "esri/views/SceneView",
+        "dojo/domReady!"
+        ], function(
+            WebMap,
+            SceneView)
+           {
+        var mywebmap = new WebMap({
+            portalItem:{
+            id:"5ff04bb396944b659586daea04b3980b"
+            }
+        });
+        var myscene = new SceneView({
+            map: mywebmap,
+            container: "viewDiv"
+            
+        });
+        //Set up the scene
+            myscene.goTo({
+            center:[-116, 44],
+            //Set the camera heading
+            heading: 35,
+            //Set the Camera tilt
+            tilt: 60,
+            //Set the zoom of your view
+            zoom:7
+        })
+    }); </script>
+</head>
+<body>
+ 
+
+<div id="viewDiv"> </div>
+
+
+</body>
+</html>
